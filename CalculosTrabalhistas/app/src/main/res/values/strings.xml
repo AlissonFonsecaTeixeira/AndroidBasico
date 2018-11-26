@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Cálculos Trabalhistas</string>
+    <string name="fgts">CALCULAR FGTS</string>
+    <string name="seguroDesemprego">CALCULAR SEGURO DESEMPREGO</string>
+    <string name="ferias">CALCULAR FÉRIAS</string>
+    <string name="recisao">CALCULAR RECISÃO</string>
+    <string name="inss">CALCULAR INSS</string>
+    <string name="salarioLiquido">CALCULAR SALÁRIO LÍQUIDO</string>
+    <string name="adicionalNoturno">CALCULAR ADICIONAL NOTURNO</string>
+    <string name="horaExtra">CALCULAR HORA EXTRA</string>
+    <string name="salarioHora">CALCULAR SALÁRIO POR HORA</string>
+    <string name="salarioBruto">Salário bruto</string>
+    <string name="x">X</string>
+    <string name="mesesTrabalhados">Número de meses trabalhados</string>
+    <string name="calcular">CALCULAR</string>
+    <string name="fonte">FONTE</string>
+</resources>
