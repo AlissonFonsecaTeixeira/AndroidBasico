@@ -1,9 +1,12 @@
 package com.androidmads.kotlinsqlite
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.androidmads.kotlinsqlite.db.DatabaseHandler
@@ -21,6 +24,12 @@ class AddOrEditActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         initDB()
         initOperations()
+    }
+
+    companion object {
+        // image pick code
+        private val REQUEST_IMAGE_GARELLY = 1000
+        private val REQUEST_IMAGE_CAPTURE = 2000
     }
 
     private fun initDB() {
@@ -64,6 +73,13 @@ class AddOrEditActivity : AppCompatActivity() {
                 finish()
         })
 
+        btnAddFoto?.setOnClickListener {
+            btnAddFoto.setOnCreateContextMenuListener { menu, v, menuInfo ->
+                menu.add(Menu.NONE, 1, Menu.NONE, "Escolher foto")
+                menu.add(Menu.NONE, 2, Menu.NONE, "Tirar foto")
+            }
+        }
+
         btn_delete.setOnClickListener({
             val dialog = AlertDialog.Builder(this).setTitle("Atenção").setMessage("Clique em SIM para deleta-lá'")
                     .setPositiveButton("SIM", { dialog, i ->
@@ -77,6 +93,16 @@ class AddOrEditActivity : AppCompatActivity() {
                     })
             dialog.show()
         })
+    }
+
+    private fun pickImageFromGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, REQUEST_IMAGE_GARELLY)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_IMAGE_GARELLY) imgTask.setImageURI(data?.data)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

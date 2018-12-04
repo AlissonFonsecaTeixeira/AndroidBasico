@@ -23,7 +23,7 @@ class FGTSActivity : AppCompatActivity() {
 
         // abrindo outro site
         btnVerFonte.setOnClickListener {
-            val uris = Uri.parse("https://calculofgts.net/")
+            val uris = Uri.parse("http://www.calculador.com.br/calculo/salario-liquido")
             val intents = Intent(Intent.ACTION_VIEW, uris)
             startActivity(intents)
         }
