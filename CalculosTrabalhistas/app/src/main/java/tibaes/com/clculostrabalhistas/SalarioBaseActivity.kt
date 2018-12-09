@@ -1,7 +1,5 @@
 package tibaes.com.clculostrabalhistas
 
-import android.content.Intent
-import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -29,12 +27,6 @@ class SalarioBaseActivity : AppCompatActivity() {
             liquido.visibility = View.VISIBLE
             liquido.setText("Salario liquido: "+resultado.toString())
 
-        }
-
-        fonte_base.setOnClickListener{
-            val uris = Uri.parse("https://calculofgts.net/")
-            val intents = Intent(Intent.ACTION_VIEW, uris)
-            startActivity(intents)
         }
     }
 
