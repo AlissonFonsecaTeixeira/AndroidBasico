@@ -1,4 +1,4 @@
-package com.androidmads.kotlinsqlite
+package com.alisson.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,9 +10,11 @@ import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import com.androidmads.kotlinsqlite.adapter.TaskRecyclerAdapter
-import com.androidmads.kotlinsqlite.db.DatabaseHandler
-import com.androidmads.kotlinsqlite.models.Tasks
+import android.view.View
+import com.alisson.R
+import com.alisson.adapter.TaskRecyclerAdapter
+import com.alisson.db.DatabaseHandler
+import com.alisson.models.Tasks
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,8 +29,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         iniciarViews()
-        initOperations()
-        //iniciarDB()
+        iniciarOperacoes()
     }
 
     fun iniciarDB() {
@@ -39,16 +40,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun iniciarViews() {
-        val toolbar = findViewById(R.id.toolbar) as Toolbar
+        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
-        fab = findViewById(R.id.fab) as FloatingActionButton
-        recyclerView = findViewById(R.id.recycler_view) as RecyclerView
+        fab = findViewById(R.id.fab)
+        recyclerView = findViewById(R.id.recycler_view)
         taskRecyclerAdapter = TaskRecyclerAdapter(tasksList = listTasks, context = applicationContext)
         linearLayoutManager = LinearLayoutManager(applicationContext)
         (recyclerView as RecyclerView).layoutManager = linearLayoutManager
     }
 
-    fun initOperations() {
+    fun iniciarOperacoes() {
         fab?.setOnClickListener { view ->
             val i = Intent(applicationContext, AddOrEditActivity::class.java)
             i.putExtra("Mode", "A")

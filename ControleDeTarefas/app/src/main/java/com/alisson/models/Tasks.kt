@@ -1,4 +1,4 @@
-package com.androidmads.kotlinsqlite.models
+package com.alisson.models
 
 class Tasks {
 

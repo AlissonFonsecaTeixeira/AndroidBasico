@@ -1,22 +1,20 @@
-package com.androidmads.kotlinsqlite.adapter
+package com.alisson.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Build
 import android.support.annotation.RequiresApi
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.androidmads.kotlinsqlite.AddOrEditActivity
+import com.alisson.view.AddOrEditActivity
 
-import com.androidmads.kotlinsqlite.R
-import com.androidmads.kotlinsqlite.models.Tasks
+import com.alisson.R
+import com.alisson.models.Tasks
 
 import java.util.ArrayList
 
@@ -56,9 +54,9 @@ class TaskRecyclerAdapter(tasksList: List<Tasks>, internal var context: Context)
     }
 
     inner class TaskViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var name: TextView = view.findViewById(R.id.tvName) as TextView
-        var desc: TextView = view.findViewById(R.id.tvDesc) as TextView
-        var list_item: LinearLayout = view.findViewById(R.id.list_item) as LinearLayout
+        var name: TextView = view.findViewById(R.id.tvName)
+        var desc: TextView = view.findViewById(R.id.tvDesc)
+        var list_item: LinearLayout = view.findViewById(R.id.list_item)
     }
 
 }

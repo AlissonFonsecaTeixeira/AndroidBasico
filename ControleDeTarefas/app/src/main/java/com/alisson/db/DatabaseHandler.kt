@@ -1,11 +1,11 @@
-package com.androidmads.kotlinsqlite.db
+package com.alisson.db
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
-import com.androidmads.kotlinsqlite.models.Tasks
+import com.alisson.models.Tasks
 import java.util.*
 
 class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, DatabaseHandler.DB_NAME, null, DatabaseHandler.DB_VERSION) {
