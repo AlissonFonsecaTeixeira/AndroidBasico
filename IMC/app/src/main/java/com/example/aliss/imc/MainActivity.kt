@@ -5,6 +5,11 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.SeekBar
+import android.widget.Toast
+import android.widget.RadioButton
+import android.widget.RadioGroup
+
+
 
 
 
@@ -17,6 +22,14 @@ class MainActivity : AppCompatActivity() {
         altura.setOnSeekBarChangeListener(yourListener())
         peso.setOnSeekBarChangeListener(yourListener())
         idade.setOnSeekBarChangeListener(yourListener())
+
+        sexo.setOnClickListener {
+            if (sexo.isChecked){
+                sexo.text = "Homem"
+            }else{
+                sexo.text = "Mulher"
+            }
+        }
 
         btnCalcular.setOnClickListener{
             val altura = altura.progress * 0.01
@@ -45,6 +58,21 @@ class MainActivity : AppCompatActivity() {
             ratingBar.numStars = 5
             ratingBar.rating = estrelas.toFloat()
         }
+
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            // checkedId is the RadioButton selected
+            val rb = findViewById<View>(checkedId) as RadioButton
+            Toast.makeText(applicationContext, rb.text, Toast.LENGTH_SHORT).show()
+            if (rb.text == "Sedentario"){
+                fisico.text = "Vamos lá, bora treinar!"
+            }else if (rb.text == "Moderado"){
+                fisico.text = "Ótimo, continue assim !"
+            }else if (rb.text == "Intenso"){
+                fisico.text = "Ei, relaxa um pouco!"
+            }else{
+                fisico.text = "Ops..."
+            }
+        };
     }
 
     private inner class yourListener : SeekBar.OnSeekBarChangeListener {
